@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+/* bootstrap の scss を読み込む */
+/* bootstrap にはリセット CSS が含まれているため、初めに読み込まないと
+他の CSS で設定したものが上書きされてしまう*/
+@import "bootstrap/scss/bootstrap";
+
+// 全ページの横幅に上限を設ける
+.graph-container {
+  @extend .container-fluid;
+  max-width: 768px;
+  padding: 1rem;
+}
