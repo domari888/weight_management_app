@@ -1,4 +1,18 @@
 <%= Gon::Base.render_data %>
+<!-- 投稿モーダルボタン -->
+<div class="row">
+  <div class="col-6">
+    <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#new-modal">
+      新規投稿
+    </button>
+  </div>
+  <div class="col-6">
+    <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#edit-modal">
+    記録の修正
+    </button>
+  </div>
+</div>
+
 <!-- カレンダー -->
 <div class="row no-gutters">
   <div class="input-group col-sm-6 pr-sm-3 mt-3">
@@ -33,3 +47,5 @@
 
 <!-- 折れ線グラフ -->
 <canvas id="chart-weight"></canvas>
+
+<%= render 'modal', action: 'new', title: '新規登録' %>
