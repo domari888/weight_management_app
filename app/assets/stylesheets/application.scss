@@ -25,3 +25,12 @@
   max-width: 768px;
   padding: 1rem;
 }
+
+// flash に色をつける
+div.alert-notice {
+  @extend .alert-info;
+}
+
+div.alert-alert {
+  @extend .alert-danger;
+}
