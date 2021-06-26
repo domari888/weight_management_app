@@ -1,3 +1,5 @@
+import flatpickr from "flatpickr"
+
 document.addEventListener('turbolinks:load', () => {
   // 日付の古い方・新しい方を取得する関数
   const minDate = (date1, date2) => (date1 < date2) ? date1 : date2
@@ -15,11 +17,41 @@ document.addEventListener('turbolinks:load', () => {
   const START_DATE = convertDate(gon.weight_records[0].date)
   const END_DATE = convertDate(gon.weight_records[gon.weight_records.length - 1].date)
 
+  // カレンダーを日本語化
+  flatpickr.localize(flatpickr.l10ns.ja)
+
+  const drawGraphForPeriod = () => {
+    // カレンダーで指定した開始日、終了日
+    let from = convertDate(document.getElementById('start-calender').value)
+    let to = convertDate(document.getElementById('end-calender').value)
+
+    if (from > to) {
+      alert ('終了日は開始日以降の日付に設定して下さい')
+    } else {
+        drawGraph(from, to)
+    }
+  }
+
+  // カレンダーの表示で開始と終了で参照するため定義
+  const periodCalenderOption = {
+    // スマートフォンでもカレンダーを表示
+    disableMobile: true,
+    // 選択できる期間を指定
+    minDate: START_DATE,
+    maxDate: END_DATE,
+    onChange: drawGraphForPeriod
+  }
+
+  // カレンダーの開始
+  const startCalenderFlatpicker = flatpickr('#start-calender', periodCalenderOption)
+  // カレンダーの終了
+  const endCalenderFlatpickrn= flatpickr('#end-calender', periodCalenderOption)
+
   // グラフを描く場所を取得
   const chartWeightContext = document.getElementById("chart-weight").getContext('2d')
-
-  let chartWeight
   
+  let chartWeight
+
   // 期間を指定してグラフを描く
   const drawGraph = (from, to) => {
       // from から to までの期間のデータに絞る
