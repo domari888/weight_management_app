@@ -43,13 +43,13 @@ document.addEventListener('turbolinks:load', () => {
   }
 
   // カレンダーの開始
-  const startCalenderFlatpicker = flatpickr('#start-calender', periodCalenderOption)
+  const startCalenderFlatpickr = flatpickr('#start-calender', periodCalenderOption)
   // カレンダーの終了
-  const endCalenderFlatpickrn= flatpickr('#end-calender', periodCalenderOption)
+  const endCalenderFlatpickr = flatpickr('#end-calender', periodCalenderOption)
 
   // グラフを描く場所を取得
   const chartWeightContext = document.getElementById("chart-weight").getContext('2d')
-  
+
   let chartWeight
 
   // 期間を指定してグラフを描く
@@ -116,6 +116,9 @@ document.addEventListener('turbolinks:load', () => {
     from = maxDate(from, START_DATE)
     let to = minDate(TODAY, END_DATE)
     drawGraph(from, to)
+
+    startCalenderFlatpickr.setDate(from)
+    endCalenderFlatpickr.setDate(to)
   }
 
   document.getElementById('a-week-button').addEventListener('click', () => {

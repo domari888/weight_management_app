@@ -25,4 +25,4 @@ require('flatpickr/dist/l10n/ja')
 // カレンダーの色を変更
 require("flatpickr/dist/themes/material_blue.css")
 // graph.js を読み込ませるための設定
-require('./graph')
+require('./graphs')
