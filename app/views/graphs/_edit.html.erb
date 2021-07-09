@@ -16,6 +16,7 @@
   <small>小数第1位まで記録できます</small>
   <div class="form-group mt-3">
     <%= form.submit '修正', class: 'btn btn-primary btn-block', id: 'edit-button' %>
+    <%# 削除ボタンを押した時に params[:_destroy] になるようにする %>
     <%= form.submit '削除', name: '_destroy', class: 'btn btn-denger btn-block', id: 'destroy-button', data: { confirm: "本当に削除しますか？"} %>
   </div>
 <% end %>
