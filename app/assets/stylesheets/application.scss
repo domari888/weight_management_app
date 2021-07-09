@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
 /* bootstrap の scss を読み込む */
 /* bootstrap にはリセット CSS が含まれているため、初めに読み込まないと
 他の CSS で設定したものが上書きされてしまう*/
@@ -33,4 +32,10 @@ div.alert-notice {
 
 div.alert-alert {
   @extend .alert-danger;
+}
+
+// モーダルの × ボタンを押した時の青枠を非表示
+button.close {
+  overflow : hidden;
+  outline : none;
 }

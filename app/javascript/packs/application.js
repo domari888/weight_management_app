@@ -10,7 +10,6 @@ import "channels"
 // import { Chart } from "chart.js"
 import 'chart.js/dist/chart';
 
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -24,5 +23,5 @@ require('flatpickr')
 require('flatpickr/dist/l10n/ja')
 // カレンダーの色を変更
 require("flatpickr/dist/themes/material_blue.css")
-// graph.js を読み込ませるための設定
+// graphs.js を読み込ませるための設定
 require('./graphs')

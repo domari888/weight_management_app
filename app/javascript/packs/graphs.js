@@ -1,5 +1,3 @@
-import flatpickr from "flatpickr"
-
 document.addEventListener('turbolinks:load', () => {
   // 日付の古い方・新しい方を取得する関数
   const minDate = (date1, date2) => (date1 < date2) ? date1 : date2
@@ -46,6 +44,14 @@ document.addEventListener('turbolinks:load', () => {
   const startCalenderFlatpickr = flatpickr('#start-calender', periodCalenderOption)
   // カレンダーの終了
   const endCalenderFlatpickr = flatpickr('#end-calender', periodCalenderOption)
+
+  // 新規登録用のカレンダー
+  flatpickr('#new-calendar', {
+    disableMobile: true,
+    // 記録のある日付を選択できないようにする
+    disable: gon.recorded_dates,
+    defaultDate: 'today'
+})
 
   // グラフを描く場所を取得
   const chartWeightContext = document.getElementById("chart-weight").getContext('2d')
