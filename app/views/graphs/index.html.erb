@@ -1,5 +1,5 @@
 <%= Gon::Base.render_data %>
-<!-- 投稿モーダルボタン -->
+<%# 投稿モーダルボタン %>
 <div class="row">
   <div class="col-6">
     <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#new-modal">
@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<!-- カレンダー -->
+<%#> カレンダー %>
 <div class="row no-gutters">
   <div class="input-group col-sm-6 pr-sm-3 mt-3">
     <div class="input-group-prepend">
@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<!-- 期間指定ボタン -->
+<%# 期間指定ボタン %>
 <div class="row">
   <div class="col-6 col-sm-3">
     <input type="button" value="過去1週間" id="a-week-button" class="btn btn-success btn-block mt-3">
@@ -45,7 +45,9 @@
   </div>
 </div>
 
-<!-- 折れ線グラフ -->
+<%# 折れ線グラフ %>
 <canvas id="chart-weight"></canvas>
 
+<%# モーダル %>
 <%= render 'modal', action: 'new', title: '新規登録' %>
+<%= render 'modal', action: 'edit', title: '修正' %>
