@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_06_26_070926) do
 
-  create_table "graphs", charset: "utf8mb4", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "graphs", force: :cascade do |t|
     t.date "date", null: false
     t.float "weight", null: false
     t.bigint "user_id", null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_070926) do
     t.index ["user_id"], name: "index_graphs_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
